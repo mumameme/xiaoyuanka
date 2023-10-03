@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery</title>
+    <style>
+      /* 设置全屏样式 */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden; /* 隐藏滚动条 */
+      }
+
+      /* 图片样式 */
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0; /* 垂直居中 */
+        left: 0;
+        right: 0; /* 水平居中 */
+        cursor: pointer; /* 鼠标指针样式为手型 */
+      }
+    </style>
+  </head>
+  <body>
+    <img src="o.jpg" alt="Image 1" id="galleryImage" onclick="nextImage()" />
+    <script>
+      // 图片数组，包含要显示的图片的文件名
+      const images = ["o.jpg", "a.jpg"];
+      let currentIndex = 0;
+
+      // 获取图像元素
+      const galleryImage = document.getElementById("galleryImage");
+
+      // 点击图片时触发的函数
+      function nextImage() {
+        currentIndex++; // 增加当前索引
+
+        // 如果超过图片数组的长度，将索引重置为0
+        if (currentIndex >= images.length) {
+          currentIndex = 0;
+        }
+
+        // 设置图像的src属性以显示下一张图片
+        galleryImage.src = images[currentIndex];
+      }
+    </script>
+  </body>
+</html>
